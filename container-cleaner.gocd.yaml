@@ -20,4 +20,4 @@ pipelines:
         - staging-bot
         tasks:
         - script: |-
-            scripts-cc/container-cleaner.py --debug --dry run home:favogt:releasetest:Containers
+            scripts-cc/container_cleaner.py --debug --dry run home:favogt:releasetest:Containers
