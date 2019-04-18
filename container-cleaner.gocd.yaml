@@ -11,7 +11,7 @@ pipelines:
         branch: containercleaner
         destination: scripts-cc
     timer:
-      spec: 0 0-23/2 * ? * *
+      spec: 0 0 0-23/2 ? * *
       only_on_changes: false
     stages:
     - Run:
@@ -20,4 +20,4 @@ pipelines:
         - staging-bot
         tasks:
         - script: |-
-            scripts-cc/container_cleaner.py --debug --dry run home:favogt:releasetest:Containers
+            scripts-cc/container_cleaner.py --debug run home:favogt:releasetest:Containers
