@@ -1,0 +1,24 @@
+format_version: 3
+pipelines:
+  Trigger.Rebuild.KDEUnstableQt:
+    group: openSUSE.Checkers
+    lock_behavior: unlockWhenFinished
+    environment_variables:
+      OSC_CONFIG: /home/go/config/oscrc-factory-maintainer
+    materials:
+      script:
+        git: https://github.com/openSUSE/openSUSE-release-tools.git
+    timer:
+      spec: 0 0 * ? * *
+      only_on_changes: false
+    stages:
+    - Run:
+        approval: manual
+        resources:
+          - repo-checker
+        tasks:
+          - script: |-
+              echo "KDE:Unstable:Qt"
+              ./project-installcheck.py --debug check --store home:repo-checker/rebuilds -r openSUSE_Tumbleweed KDE:Unstable:Qt
+              ./project-installcheck.py --debug check --store home:repo-checker/rebuilds -r openSUSE_Leap_15.1 KDE:Unstable:Qt
+
