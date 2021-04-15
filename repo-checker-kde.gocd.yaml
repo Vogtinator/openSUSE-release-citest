@@ -21,4 +21,5 @@ pipelines:
               echo "KDE:Unstable:Qt"
               ./project-installcheck.py --debug check --store home:repo-checker/rebuilds -r openSUSE_Tumbleweed KDE:Unstable:Qt
               ./project-installcheck.py --debug check --store home:repo-checker/rebuilds -r openSUSE_Leap_15.2 KDE:Unstable:Qt
+              ./project-installcheck.py --debug check --store home:repo-checker/rebuilds -r openSUSE_Leap_15.3 KDE:Unstable:Qt
 
